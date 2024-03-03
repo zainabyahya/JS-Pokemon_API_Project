@@ -10,7 +10,8 @@ Users can explore various Pokémon, view their details, and learn more about the
 2. **Pokémon List Page**: Browse through a collection of Pokémon, each displayed within a card with its name.
 3. **Pokémon Details Page**: Click on individual Pokémon to view detailed information on a new page, including their sprite, name, abilities, types, stats, and height.
 
-   **[Bonus]:** Provide the Pokémon forms in the details page as a subsection, each form should include the form name and sprite.
+   **[Bonus]:** Provide the Pokémon forms in the details page as a subsection, each form should include the form name and sprite
+   .
 
 ### Technologies Used
 
@@ -19,4 +20,8 @@ Users can explore various Pokémon, view their details, and learn more about the
 
 ## Getting Started
 
-To get started, **fork** this repository and start coding, good luck!
+1. Begin by having one team member **fork** this repository.
+2. Invite other team members to collaborate by adding them to your forked repository.
+3. Familiarize yourselves with the [PokeAPI](https://pokeapi.co/) documentation and start coding!
+
+Best of luck on your coding journey!
