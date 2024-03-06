@@ -8,10 +8,10 @@
   </head>
   <body>
     <div id="main-section">
-      <div id="card-section">
+      <div id="secondary-section">
         <navbar class="navbar">
           <img class="logo-img" src="./images/logo.png" />
-          <ul>
+          <ul class="nav-list">
             <li class="nav-item">Home</li>
             <li class="nav-item">Pokemons</li>
           </ul>
@@ -19,18 +19,36 @@
 
         <div id="details-card">
           <div id="details-section">
-            <h1>NAME</h1>
+            <div id="background">PIKACHU</div>
+            <h1 id="poke-name">PIKACHU</h1>
             <div id="details-slider">
               <div id="details-control">
-                <button id="left-btn"></button>
-                <h2 id="details-title"></h2>
-                <button id="right-btn"></button>
+                <button class="arrow-btn" id="left-btn">
+                  <img src="./images/left-arrow.png" />
+                </button>
+                <h2 id="details-title">ABILITIES</h2>
+                <button class="arrow-btn" id="right-btn">
+                  <img src="./images/right-arrow.png" />
+                </button>
               </div>
-              <ul id="details-list"></ul>
+              <ul id="details-list">
+                <li class="list-item">Ability 1</li>
+                <li class="list-item">Ability 2</li>
+              </ul>
             </div>
           </div>
-          <div id="img-section"></div>
-          <div id="forms-section"></div>
+          <div id="img-section">
+            <div id="sticky-height">
+              <h3 class="poke-info" id="height">Heigth - 7</h3>
+              <img class="poke-img" src="./images/4-removebg-preview.png" />
+            </div>
+            <h3 class="poke-info" id="weight">Weight - 6kg</h3>
+          </div>
+          <div id="forms-section">
+            <img src="./images/y.png" class="form-img" />
+            <img src="./images/x.png" class="form-img" />
+            <img src="./images/z.png" class="form-img" />
+          </div>
         </div>
       </div>
     </div>

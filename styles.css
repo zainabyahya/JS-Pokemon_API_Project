@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kreon:wght@300..700&display=swap');
+
+:root {
+    --primary: #263C91;
+    --secondary: #FFEE39;
+}
+
+
+* {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+
+}
+
+#main-section {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary);
+    padding: 5rem;
+}
+
+#secondary-section {
+    margin: auto;
+    background-color: #F9D51D;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.nav-list {
+    list-style: none;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.logo-img {
+    height: 6rem;
+}
+
+#details-section {}
+
+
+#details-card {
+    padding: 0.5rem;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-areas: "details img forms";
+}
+
+#details-section {
+    /* background-color: aliceblue; */
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#background {
+    position: absolute;
+    top: 16rem;
+    left: 12.8rem;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.227);
+    font-size: 23rem;
+}
+
+
+#poke-name {
+    font-size: 5rem;
+    /* background-color: chocolate; */
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+
+
+
+#details-slider {
+    /* background-color: brown; */
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#details-control {
+    /* background-color: burlywood; */
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+#details-title {
+    color: white;
+    padding: 1rem 3rem;
+    background-color: var(--primary);
+    border-radius: 10px;
+    width: fit-content;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.arrow-btn {
+    background: none;
+    border: 0;
+}
+
+#details-list {
+    width: 70%;
+    padding: 0 1rem 1rem 1rem;
+
+    /* background-color: aquamarine; */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 3rem;
+
+}
+
+.list-item {
+    font-family: "Kreon", serif;
+    font-size: 1.3rem;
+}
+
+#img-section {
+    /* background-color: aqua; */
+    grid-area: img;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.poke-info {
+    font-family: "Kreon", serif;
+    font-size: 1.5rem;
+}
+
+#weight {
+    /* text-align: center; */
+}
+
+#height {
+    transform: rotate(270deg);
+}
+
+#sticky-height {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.poke-img {
+    width: 60%;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    align-self: center;
+}
+
+#forms-section {
+    /* background-color: blue; */
+    grid-area: forms;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 2rem;
+}
+
+.form-img {
+    padding: 1rem;
+    width: 27%;
+}
