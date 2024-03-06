@@ -64,8 +64,7 @@ async function getFormDetails(name) {
 
 async function displayPokemonDetails() {
     const searchParams = new URLSearchParams(window.location.search);
-    // const name = searchParams.get("name");
-    const name = "ditto";
+    const name = searchParams.get("name");
     const data = await getPokemonDetails(name);
 
     if (!data) {
@@ -80,10 +79,6 @@ async function displayPokemonDetails() {
     backText.textContent = data.name;
     pokemonImg.src = data.sprites.front_default;
 
-    // // get abilities
-    // data.abilities.forEach((ability, index) => {
-    //     pokemonDetails.innerHTML += `<li class="list-item"> ${ability.ability.name} </li>`;
-    // });
 
     // get forms
     const formData = data.forms;
@@ -122,25 +117,29 @@ function displayInfo(data) {
 }
 
 async function prevPokemon() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const name = searchParams.get("name");
     if (slider > 0) {
         slider--;
-        const data = await getPokemonDetails("ditto");
+        const data = await getPokemonDetails(name);
         displayInfo(data);
     } else {
         slider = 2;
-        const data = await getPokemonDetails("ditto");
+        const data = await getPokemonDetails(name);
         displayInfo(data);
     }
 }
 
 async function nextPokemon() {
+    const searchParams = new URLSearchParams(window.location.search);
+    const name = searchParams.get("name");
     if (slider === 2) {
         slider = 0;
     } else {
         slider++;
 
     }
-    const data = await getPokemonDetails("ditto");
+    const data = await getPokemonDetails(name);
     displayInfo(data);
 }
 

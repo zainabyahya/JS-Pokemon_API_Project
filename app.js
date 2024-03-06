@@ -58,8 +58,10 @@ async function displayPokemons() {
         pokemonCard.textContent = pokemon.name;
 
         pokemonCard.addEventListener("click", () => {
-            window.location.href = `./pokemon-details.html?name=${pokemon.name}`;
+            window.location.href = `./pokemons.html?name=${data.name}`;
+            console.log(data.name);
         });
+
         pokemonsContainer.appendChild(pokemonCard);
         pokemonCard.appendChild(pokemonImg);
         pokemonCard.appendChild(borderCard);
