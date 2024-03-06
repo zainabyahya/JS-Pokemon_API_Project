@@ -56,11 +56,13 @@ body {
 
 
 #details-card {
+    /* background-color: antiquewhite; */
     padding: 0.5rem;
     display: grid;
     gap: 10px;
     grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas: "details img forms";
+    height: 70%;
 }
 
 #details-section {
@@ -148,6 +150,13 @@ body {
     font-size: 1.3rem;
 }
 
+
+
+.poke-info {
+    font-family: "Kreon", serif;
+    font-size: 1.5rem;
+}
+
 #img-section {
     /* background-color: aqua; */
     grid-area: img;
@@ -156,11 +165,6 @@ body {
     justify-content: center;
     align-items: center;
 
-}
-
-.poke-info {
-    font-family: "Kreon", serif;
-    font-size: 1.5rem;
 }
 
 #weight {
@@ -172,12 +176,12 @@ body {
 }
 
 #sticky-height {
-    width: fit-content;
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-.poke-img {
+#poke-img {
     width: 60%;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
@@ -194,7 +198,19 @@ body {
     padding-right: 2rem;
 }
 
+#form-list {
+    list-style: none;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
 .form-img {
     padding: 1rem;
-    width: 27%;
+    width: 100%;
 }
