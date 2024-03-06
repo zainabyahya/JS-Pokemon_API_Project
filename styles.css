@@ -1,0 +1,95 @@
+.navbar{
+  display: flex;
+  justify-content: space-between;   
+   }
+.logo-img{
+    width: 200px;
+}
+
+
+
+.bolt-img{
+position: absolute;
+z-index: 0;
+top: 50rem;
+left: 900px;
+opacity: 0.5; 
+width: 800px;
+}
+.hero-text{
+  font-size: 200px;
+  z-index: 1;
+position: relative;
+top: 40rem;
+left: 200px;
+color: #FFEE39;
+}
+
+.contenera{
+  background-color: #263C91; 
+  z-index: -1;
+}
+.nav-list{
+ display: flex; 
+ justify-content: space-evenly; 
+  list-style: none;
+  width: 33%;
+}
+.nav-list{
+  font-size: 44px;
+}
+.nav-list{
+  color: #FFEE39;
+}  
+.hero{
+    display: flex; 
+    justify-content: space-around;
+    height: 85vh;   
+}
+.pokemons-img{
+  position: relative;
+top: 9rem;
+}
+.contener{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.contener img{
+  width: 150px; 
+}
+.contener h1{
+  font-size: 70px;
+  color: #263C91;
+}
+.card1{
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  
+}
+
+.card-img{
+  width: 15rem;
+}
+.poke{
+  font-size: 4rem;
+}
+.pokecard{
+height: 100%;
+position: relative;
+top: -11rem;
+padding-top: 9rem;
+z-index: -1;
+box-shadow: 1px 4px 12px 0px rgba(144,140,123,0.53);
+/* display: flex;
+flex-direction: column;
+justify-content: center; */
+}
+.tape{
+  display: flex;
+  justify-content: space-evenly;
+} 
