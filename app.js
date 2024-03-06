@@ -34,6 +34,8 @@ async function getPokemonDetails(name) {
         return null;
     }
 }
+
+// to fetch forms data
 async function getFormDetails(name) {
     if (!name) {
         return null;
@@ -53,16 +55,17 @@ async function getFormDetails(name) {
     }
 }
 
-async function displayFormDetails(name) {
-    const formData = await getFormDetails(name);
+// async function displayFormDetails(name) {
+//     const formData = await getFormDetails(name);
 
-    return formData;
+//     return formData;
 
-}
+// }
+
 async function displayPokemonDetails() {
     const searchParams = new URLSearchParams(window.location.search);
     // const name = searchParams.get("name");
-    const name = "raichu";
+    const name = "ditto";
     const data = await getPokemonDetails(name);
 
     if (!data) {
@@ -77,10 +80,10 @@ async function displayPokemonDetails() {
     backText.textContent = data.name;
     pokemonImg.src = data.sprites.front_default;
 
-    // get abilities
-    data.abilities.forEach((ability, index) => {
-        pokemonDetails.innerHTML += `<li class="list-item"> ${ability.ability.name} </li>`;
-    });
+    // // get abilities
+    // data.abilities.forEach((ability, index) => {
+    //     pokemonDetails.innerHTML += `<li class="list-item"> ${ability.ability.name} </li>`;
+    // });
 
     // get forms
     const formData = data.forms;
@@ -91,15 +94,58 @@ async function displayPokemonDetails() {
         pokemonForms.innerHTML += `<li class="form-item"><img src="${formDetails.sprites.front_default}" class="form-img" />${formDetails.pokemon.name} </li>`
 
     }
+    displayInfo(data);
+}
+let slider = 0;
 
-
-
+function displayInfo(data) {
+    pokemonDetails.innerHTML = "";
+    if (slider === 0) {
+        pokemonDetailTitle.textContent = "Abilities";
+        data.abilities.map((ability) => {
+            pokemonDetails.innerHTML += `<li class="list-item">${ability.ability.name}</li>`
+        });
+    }
+    else if (slider === 1) {
+        pokemonDetailTitle.textContent = "Types";
+        data.types.map((type) => {
+            pokemonDetails.innerHTML += `<li class="list-item">${type.type.name}</li>`
+            console.log(`<li class="list-item">${type.type.name}</li>`);
+        });
+    }
+    else if (slider == 2) {
+        pokemonDetailTitle.textContent = "Stats";
+        data.stats.map((stat) => {
+            pokemonDetails.innerHTML += `<li class="list-item">${stat.stat.name}: ${stat.base_stat}</li>`
+        });
+    }
 }
 
+async function prevPokemon() {
+    if (slider > 0) {
+        slider--;
+        const data = await getPokemonDetails("ditto");
+        displayInfo(data);
+    } else {
+        slider = 2;
+        const data = await getPokemonDetails("ditto");
+        displayInfo(data);
+    }
+}
+
+async function nextPokemon() {
+    if (slider === 2) {
+        slider = 0;
+    } else {
+        slider++;
+
+    }
+    const data = await getPokemonDetails("ditto");
+    displayInfo(data);
+}
+
+
 displayPokemonDetails();
-
-
-
 
 
 
