@@ -16,6 +16,143 @@ body {
 
 }
 
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.nav-list {
+    list-style: none;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+}
+
+.logo-img {
+    height: 6rem;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a.main-links:link,
+a.main-links:visited {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
+
+/* Home Page */
+.header {
+    background-color: var(--primary);
+    padding: 2rem;
+    height: 85vh;
+}
+
+#hero-section {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* #hero-txt-container {
+    font-size: 4rem;
+    width: 40%;
+    position: relative;
+
+} */
+
+#hero-txt {
+    font-size: 7rem;
+    width: 50%;
+    z-index: 1;
+    position: relative;
+    color: var(--secondary);
+}
+
+#hero-img {
+    width: 33%;
+    height: auto;
+    position: relative;
+    top: -1rem;
+    /* box-shadow: 1px 4px 12px 0px rgba(144, 140, 123, 0.53); */
+
+}
+
+#bolt-img {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.5;
+    left: 13rem;
+    bottom: 13rem;
+}
+
+#cards-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#cards-title {
+    padding: 2rem;
+    color: var(--primary);
+    font-size: 4rem;
+}
+
+#ball-img {
+    height: 4rem;
+}
+
+#cards {
+    padding: 2rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.pokemon-img {
+    position: relative;
+    z-index: 0;
+}
+
+.border-card {
+    height: 100%;
+    position: relative;
+    z-index: -1;
+    box-shadow: 1px 4px 12px 0px rgba(0, 0, 0, 0.53);
+}
+
+.pokemon-name {}
+
+#footer {
+    background-color: #263C91;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Kreon", serif;
+}
+
+/* Details Page */
+
 #main-section {
     box-sizing: border-box;
     width: 100vw;
@@ -33,36 +170,19 @@ body {
 
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
-}
-
-.nav-list {
-    list-style: none;
-    width: 30%;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1.5rem;
-    color: var(--primary);
-}
-
-.logo-img {
-    height: 6rem;
-}
 
 #details-section {}
 
 
 #details-card {
     /* background-color: antiquewhite; */
-    padding: 0.5rem;
+    padding: 0 0.5rem;
     display: grid;
     gap: 10px;
     grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas: "details img forms";
     height: 70%;
+    /* align-items: self-start; */
 }
 
 #details-section {
@@ -124,6 +244,7 @@ body {
     width: fit-content;
     text-align: center;
     font-size: 1.5rem;
+    margin: 0;
 }
 
 .arrow-btn {
@@ -134,7 +255,6 @@ body {
 #details-list {
     width: 70%;
     padding: 0 1rem 1rem 1rem;
-
     /* background-color: aquamarine; */
     list-style: none;
     display: flex;

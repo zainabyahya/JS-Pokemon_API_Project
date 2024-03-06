@@ -1,41 +1,19 @@
-// home page 
+const pokemonsContainer = document.getElementById("cards");
 
-
-
-// details page
-const pokemonContainer = document.getElementById("details-card");
-const backText = document.getElementById("background")
-const pokemonTitle = document.getElementById("poke-name");
-const pokemonImg = document.getElementById("poke-img");
-const pokemonDetailTitle = document.getElementById("details-title")
-const pokemonDetails = document.getElementById("details-list");
-const pokemonHeight = document.getElementById("height");
-const pokemonWeight = document.getElementById("weight");
-const pokemonForms = document.getElementById("form-list");
-
-
-// getting info from API
-
-async function getPokemonDetails(name) {
-    if (!name) {
-        return null;
-    }
-
+async function getPokemons() {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
         if (!response.ok) {
             return null;
         }
 
         const data = await response.json();
 
-        return data;
+        return data.results;
     } catch (error) {
         return null;
     }
 }
-
-// to fetch forms data
 async function getFormDetails(name) {
     if (!name) {
         return null;
@@ -54,98 +32,38 @@ async function getFormDetails(name) {
         return null;
     }
 }
+async function displayPokemons() {
+    const pokemons = await getPokemons();
 
-// async function displayFormDetails(name) {
-//     const formData = await getFormDetails(name);
-
-//     return formData;
-
-// }
-
-async function displayPokemonDetails() {
-    const searchParams = new URLSearchParams(window.location.search);
-    // const name = searchParams.get("name");
-    const name = "ditto";
-    const data = await getPokemonDetails(name);
-
-    if (!data) {
-        pokemonContainer.textContent = "Error fetching pokemon details";
+    if (!pokemons) {
+        pokemonContainer.textContent = "Error fetching pokemons";
         return;
     }
 
-    pokemonHeight.textContent += " " + data.height;
-    pokemonWeight.textContent += " " + data.weight + "kg";
+    for (pokemon of pokemons) {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${pokemon.name}`);
+        const data = await response.json();
 
-    pokemonTitle.textContent = data.name;
-    backText.textContent = data.name;
-    pokemonImg.src = data.sprites.front_default;
+        const pokemonCard = document.createElement("div");
+        const pokemonImg = document.createElement("img");
+        const borderCard = document.createElement("div");
+        const pokemonName = document.createElement("h3");
 
-    // // get abilities
-    // data.abilities.forEach((ability, index) => {
-    //     pokemonDetails.innerHTML += `<li class="list-item"> ${ability.ability.name} </li>`;
-    // });
+        pokemonCard.classList.add("pokemon-card");
+        pokemonImg.classList.add("pokemon-img");
+        borderCard.classList.add("border-card");
+        pokemonName.classList.add("pokemon-name");
 
-    // get forms
-    const formData = data.forms;
-    for (const form of data.forms) {
-        const formName = form.name;
-        const formDetails = await getFormDetails(formName);
-        console.log(formDetails.pokemon.name);
-        pokemonForms.innerHTML += `<li class="form-item"><img src="${formDetails.sprites.front_default}" class="form-img" />${formDetails.pokemon.name} </li>`
+        pokemonImg.src = data.sprites.front_default;
+        pokemonCard.textContent = pokemon.name;
 
-    }
-    displayInfo(data);
-}
-let slider = 0;
-
-function displayInfo(data) {
-    pokemonDetails.innerHTML = "";
-    if (slider === 0) {
-        pokemonDetailTitle.textContent = "Abilities";
-        data.abilities.map((ability) => {
-            pokemonDetails.innerHTML += `<li class="list-item">${ability.ability.name}</li>`
+        pokemonCard.addEventListener("click", () => {
+            window.location.href = `./pokemon-details.html?name=${pokemon.name}`;
         });
-    }
-    else if (slider === 1) {
-        pokemonDetailTitle.textContent = "Types";
-        data.types.map((type) => {
-            pokemonDetails.innerHTML += `<li class="list-item">${type.type.name}</li>`
-            console.log(`<li class="list-item">${type.type.name}</li>`);
-        });
-    }
-    else if (slider == 2) {
-        pokemonDetailTitle.textContent = "Stats";
-        data.stats.map((stat) => {
-            pokemonDetails.innerHTML += `<li class="list-item">${stat.stat.name}: ${stat.base_stat}</li>`
-        });
+        pokemonsContainer.appendChild(pokemonCard);
+        pokemonCard.appendChild(pokemonImg);
+        pokemonCard.appendChild(borderCard);
+        borderCard.appendChild(pokemonName);
     }
 }
-
-async function prevPokemon() {
-    if (slider > 0) {
-        slider--;
-        const data = await getPokemonDetails("ditto");
-        displayInfo(data);
-    } else {
-        slider = 2;
-        const data = await getPokemonDetails("ditto");
-        displayInfo(data);
-    }
-}
-
-async function nextPokemon() {
-    if (slider === 2) {
-        slider = 0;
-    } else {
-        slider++;
-
-    }
-    const data = await getPokemonDetails("ditto");
-    displayInfo(data);
-}
-
-
-displayPokemonDetails();
-
-
-
+displayPokemons();
