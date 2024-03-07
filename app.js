@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-list');
+
+    hamburgerMenu.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+    });
+});
+
 const pokemonsContainer = document.getElementById("cards");
 
 async function getPokemons() {
@@ -55,7 +64,7 @@ async function displayPokemons() {
         pokemonName.classList.add("pokemon-name");
 
         pokemonImg.src = data.sprites.front_default;
-        pokemonCard.textContent = pokemon.name;
+        pokemonName.textContent = pokemon.name;
 
         pokemonCard.addEventListener("click", () => {
             window.location.href = `./pokemons.html?name=${data.name}`;
@@ -66,6 +75,10 @@ async function displayPokemons() {
         pokemonCard.appendChild(pokemonImg);
         pokemonCard.appendChild(borderCard);
         borderCard.appendChild(pokemonName);
+        // pokemonCard.appendChild(pokemonName);
     }
 }
+
+
+
 displayPokemons();
