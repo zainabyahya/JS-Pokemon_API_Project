@@ -1,6 +1,6 @@
-// home page 
+import { colors } from "./colors.js";
 
-
+console.log(colors[1].name);
 
 // details page
 const pokemonContainer = document.getElementById("details-card");
@@ -55,13 +55,6 @@ async function getFormDetails(name) {
     }
 }
 
-// async function displayFormDetails(name) {
-//     const formData = await getFormDetails(name);
-
-//     return formData;
-
-// }
-
 async function displayPokemonDetails() {
     const searchParams = new URLSearchParams(window.location.search);
     const name = searchParams.get("name");
@@ -82,13 +75,19 @@ async function displayPokemonDetails() {
 
     // get forms
     const formData = data.forms;
-    for (const form of data.forms) {
+    for (const form of formData) {
         const formName = form.name;
         const formDetails = await getFormDetails(formName);
         console.log(formDetails.pokemon.name);
         pokemonForms.innerHTML += `<li class="form-item"><img src="${formDetails.sprites.front_default}" class="form-img" />${formDetails.pokemon.name} </li>`
 
     }
+
+    colors.find((color, index) => {
+        if (color.name === name) {
+            document.getElementById("secondary-section").style["background-color"] = color.color;
+        }
+    });
     displayInfo(data);
 }
 let slider = 0;
