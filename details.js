@@ -1,7 +1,5 @@
 import { colors } from "./colors.js";
 
-console.log(colors[1].name);
-
 // details page
 const pokemonContainer = document.getElementById("details-card");
 const backText = document.getElementById("background")
@@ -79,8 +77,7 @@ async function displayPokemonDetails() {
         const formName = form.name;
         const formDetails = await getFormDetails(formName);
         console.log(formDetails.pokemon.name);
-        pokemonForms.innerHTML += `<li class="form-item"><img src="${formDetails.sprites.front_default}" class="form-img" />${formDetails.pokemon.name} </li>`
-
+        pokemonForms.innerHTML += `<li class="form-item"><img src="${formDetails.sprites.front_default}" class="form-img" />${formDetails.pokemon.name} </li>`;
     }
 
     colors.find((color, index) => {
@@ -88,7 +85,9 @@ async function displayPokemonDetails() {
             document.getElementById("secondary-section").style["background-color"] = color.color;
         }
     });
+
     displayInfo(data);
+
 }
 let slider = 0;
 
@@ -114,34 +113,56 @@ function displayInfo(data) {
         });
     }
 }
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
 
-async function prevPokemon() {
-    const searchParams = new URLSearchParams(window.location.search);
-    const name = searchParams.get("name");
+
+prevBtn.addEventListener("click", async () => {
     if (slider > 0) {
         slider--;
-        const data = await getPokemonDetails(name);
+        const data = await getPokemonDetails("ditto");
         displayInfo(data);
     } else {
         slider = 2;
-        const data = await getPokemonDetails(name);
+        const data = await getPokemonDetails("ditto");
         displayInfo(data);
     }
-}
+});
 
-async function nextPokemon() {
-    const searchParams = new URLSearchParams(window.location.search);
-    const name = searchParams.get("name");
+nextBtn.addEventListener("click", async () => {
     if (slider === 2) {
         slider = 0;
     } else {
         slider++;
 
     }
-    const data = await getPokemonDetails(name);
+    const data = await getPokemonDetails("ditto");
     displayInfo(data);
-}
 
+});
+
+// async function prevPokemon() {
+//     if (slider > 0) {
+//         slider--;
+//         const data = await getPokemonDetails("ditto");
+//         displayInfo(data);
+//     } else {
+//         slider = 2;
+//         const data = await getPokemonDetails("ditto");
+//         displayInfo(data);
+//     }
+// }
+
+// async function nextPokemon() {
+//     if (slider === 2) {
+//         slider = 0;
+//     } else {
+//         slider++;
+
+//     }
+//     const data = await getPokemonDetails("ditto");
+//     displayInfo(data);
+// }
 
 displayPokemonDetails();
 

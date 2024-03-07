@@ -27,7 +27,6 @@ async function getFormDetails(name) {
     if (!name) {
         return null;
     }
-
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon-form/${name}`);
         if (!response.ok) {
@@ -35,7 +34,6 @@ async function getFormDetails(name) {
         }
 
         const data = await response.json();
-
         return data;
     } catch (error) {
         return null;
