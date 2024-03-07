@@ -73,7 +73,6 @@ async function displayPokemons() {
         pokemonCard.appendChild(pokemonImg);
         pokemonCard.appendChild(borderCard);
         borderCard.appendChild(pokemonName);
-        // pokemonCard.appendChild(pokemonName);
     }
 }
 

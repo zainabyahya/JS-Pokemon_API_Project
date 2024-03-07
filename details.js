@@ -1,6 +1,5 @@
 import { colors } from "./colors.js";
 
-// details page
 const pokemonContainer = document.getElementById("details-card");
 const backText = document.getElementById("background")
 const pokemonTitle = document.getElementById("poke-name");
@@ -13,7 +12,6 @@ const pokemonForms = document.getElementById("form-list");
 
 
 // getting info from API
-
 async function getPokemonDetails(name) {
     if (!name) {
         return null;
@@ -140,29 +138,6 @@ nextBtn.addEventListener("click", async () => {
     displayInfo(data);
 
 });
-
-// async function prevPokemon() {
-//     if (slider > 0) {
-//         slider--;
-//         const data = await getPokemonDetails("ditto");
-//         displayInfo(data);
-//     } else {
-//         slider = 2;
-//         const data = await getPokemonDetails("ditto");
-//         displayInfo(data);
-//     }
-// }
-
-// async function nextPokemon() {
-//     if (slider === 2) {
-//         slider = 0;
-//     } else {
-//         slider++;
-
-//     }
-//     const data = await getPokemonDetails("ditto");
-//     displayInfo(data);
-// }
 
 displayPokemonDetails();
 

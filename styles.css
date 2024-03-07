@@ -5,7 +5,6 @@
     --secondary: #FFEE39;
 }
 
-
 * {
     font-family: "Bebas Neue", sans-serif;
 }
@@ -13,9 +12,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
-
 }
-
 
 .navbar {
     display: flex;
@@ -33,8 +30,6 @@ body {
     font-size: 1.5rem;
 }
 
-
-
 .logo-img {
     order: 1;
     height: 6rem;
@@ -51,7 +46,6 @@ a.main-links:visited {
     text-decoration: none;
     color: var(--secondary);
 }
-
 
 /* Home Page */
 .header {
@@ -82,8 +76,6 @@ a.main-links:visited {
     height: auto;
     position: relative;
     top: -1rem;
-    /* box-shadow: 1px 4px 12px 0px rgba(144, 140, 123, 0.53); */
-
 }
 
 #cards-section {
@@ -122,8 +114,6 @@ a.main-links:visited {
     position: relative;
     border-radius: 10px;
     width: 15rem;
-
-
 }
 
 .pokemon-img {
@@ -160,7 +150,6 @@ a.main-links:visited {
 }
 
 /* Details Page */
-
 #main-section {
     box-sizing: border-box;
     width: 100vw;
@@ -175,26 +164,18 @@ a.main-links:visited {
     height: 100%;
     position: relative;
     z-index: 0;
-
 }
 
-
-#details-section {}
-
-
 #details-card {
-    /* background-color: antiquewhite; */
     padding: 0 0.5rem 1rem 0.5rem;
     display: grid;
     gap: 10px;
     grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas: "details img forms";
     height: 70%;
-    /* align-items: self-start; */
 }
 
 #details-section {
-    /* background-color: aliceblue; */
     grid-area: details;
     display: flex;
     flex-direction: column;
@@ -217,14 +198,11 @@ a.main-links:visited {
 
 #poke-name {
     font-size: 5rem;
-    /* background-color: chocolate; */
     margin-bottom: 0;
     padding-bottom: 0;
-
 }
 
 #details-slider {
-    /* background-color: brown; */
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -234,7 +212,6 @@ a.main-links:visited {
 }
 
 #details-control {
-    /* background-color: burlywood; */
     width: 50%;
     padding: 1rem;
     display: flex;
@@ -262,14 +239,12 @@ a.main-links:visited {
 #details-list {
     width: 70%;
     padding: 0 1rem 1rem 1rem;
-    /* background-color: aquamarine; */
     list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     line-height: 3rem;
-
 }
 
 .list-item {
@@ -277,26 +252,17 @@ a.main-links:visited {
     font-size: 1.3rem;
 }
 
-
-
 .poke-info {
     font-family: "Kreon", serif;
     font-size: 1.5rem;
 }
 
 #img-section {
-    /* background-color: aqua; */
     grid-area: img;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
-
-
-#weight {
-    /* text-align: center; */
 }
 
 #height {
@@ -317,7 +283,6 @@ a.main-links:visited {
 }
 
 #forms-section {
-    /* background-color: blue; */
     grid-area: forms;
     display: flex;
     flex-direction: column;
@@ -344,7 +309,6 @@ a.main-links:visited {
 }
 
 @media screen and (max-width:768px) {
-
     .header {
         height: auto;
     }
@@ -373,9 +337,7 @@ a.main-links:visited {
         display: none;
     }
 
-
     #hero-txt {
-
         width: 70%;
         padding: 0;
         font-size: 3rem;
@@ -418,7 +380,6 @@ a.main-links:visited {
         width: 100%;
         height: auto;
         justify-content: space-between;
-
     }
 
     #details-title {
@@ -434,7 +395,6 @@ a.main-links:visited {
     #background {
         display: none;
     }
-
 }
 
 @media screen and (max-width:1080px) {
@@ -489,7 +449,6 @@ a.main-links:visited {
         width: 100%;
         height: auto;
         justify-content: space-evenly;
-
     }
 
     #details-title {
@@ -505,8 +464,6 @@ a.main-links:visited {
     #height {
         font-size: 0.7rem;
     }
-
-
 }
 
 @media screen and (max-width: 1264px) {
@@ -524,7 +481,6 @@ a.main-links:visited {
         width: 80%;
         height: auto;
         justify-content: space-evenly;
-
     }
 
     #details-title {
